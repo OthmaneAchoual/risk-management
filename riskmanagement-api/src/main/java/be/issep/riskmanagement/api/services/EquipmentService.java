@@ -46,17 +46,30 @@ public class EquipmentService {
 		return this.repository.save(entity);
 	}
 	
+	public Equipment update(EquipmentDTO equipment, Long id) {
+		Choice type = this.choiceService.get(equipment.getType());
+		Equipment entity = this.repository.findById(id).get();
+		entity.setCode(equipment.getCode());
+		entity.setTitle(equipment.getTitle());
+		entity.setEpc(equipment.isEpc());
+		entity.setTraining(equipment.isTraining());
+		entity.setImagePath(equipment.getImagePath());
+		entity.setType(type);
+		return this.repository.save(entity);
+	}
+	
 	public String saveImage(MultipartFile file) {
+		String path = "/Users/othmaneachoual/git/risk-management/" + file.getOriginalFilename();
 		try {
 			byte[] bytes = file.getBytes();
 			BufferedOutputStream os = new BufferedOutputStream(
-						new FileOutputStream(new File("/Users/othmaneachoual/git/risk-management/" + file.getOriginalFilename()))
+						new FileOutputStream(new File(path))
 					);
 			os.write(bytes);
 			os.close();
 		} catch (Exception e) {
 			
 		}
-		return "/Users/othmaneachoual/git/risk-management/" + file.getOriginalFilename();
+		return path;
 	}
 }
