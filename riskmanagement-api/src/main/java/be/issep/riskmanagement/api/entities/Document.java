@@ -7,16 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Document {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@JsonProperty("ID")
 	private Long id;
 	
 	private String code;
 	private String title;
-	private String file;
+	private String filePath;
 	
 	@ManyToOne
 	@JoinColumn(name="CATEGORY")
@@ -26,9 +29,10 @@ public class Document {
 		
 	}
 
-	public Document(String code, String title) {
+	public Document(String code, String title, String filePath) {
 		this.code = code;
 		this.title = title;
+		this.filePath = filePath;
 	}
 
 	public Long getId() {
@@ -55,12 +59,12 @@ public class Document {
 		this.title = title;
 	}
 
-	public String getFile() {
-		return file;
+	public String getFilePath() {
+		return filePath;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
 	public Choice getCategory() {

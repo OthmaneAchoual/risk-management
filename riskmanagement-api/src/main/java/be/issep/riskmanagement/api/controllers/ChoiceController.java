@@ -28,6 +28,11 @@ public class ChoiceController {
 		return this.service.all();
 	}
 	
+	@GetMapping("/{id}")
+	public Choice get(@PathVariable("id") Long id) {
+		return this.service.get(id);
+	}
+	
 	@PostMapping("")
 	public Choice add(@RequestBody Choice choice) {
 		return this.service.add(choice);

@@ -6,25 +6,25 @@ public class DocumentDTO {
 
 	private String code;
 	private String title;
-	private String file;
+	private String filePath;
 	private Long category;
 	
 	public DocumentDTO() {
 		
 	}
 	
-	public DocumentDTO(String code, String title, String file, Long category) {
+	public DocumentDTO(String code, String title, Long category) {
 		this.code = code;
 		this.title = title;
 		this.category = category;
 	}
-	
-	public String getFile() {
-		return file;
+
+	public String getFilePath() {
+		return filePath;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
 	public String getCode() {
@@ -52,6 +52,10 @@ public class DocumentDTO {
 	}
 
 	public Document convert() {
-		return new Document(this.code, this.title);
+		return new Document(
+				this.code,
+				this.title,
+				this.filePath
+		);
 	}
 }
