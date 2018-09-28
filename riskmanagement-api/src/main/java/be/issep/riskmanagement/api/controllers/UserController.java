@@ -17,7 +17,7 @@ import be.issep.riskmanagement.api.entities.dtos.UserDTO;
 import be.issep.riskmanagement.api.services.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/user")
 @CrossOrigin(origins="http://localhost:4200")
 public class UserController {
 
