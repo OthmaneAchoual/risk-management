@@ -6,18 +6,27 @@ public class DocumentDTO {
 
 	private String code;
 	private String title;
+	private String file;
 	private Long category;
 	
 	public DocumentDTO() {
 		
 	}
 	
-	public DocumentDTO(String code, String title, Long category) {
+	public DocumentDTO(String code, String title, String file, Long category) {
 		this.code = code;
 		this.title = title;
 		this.category = category;
 	}
 	
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
+
 	public String getCode() {
 		return this.code;
 	}

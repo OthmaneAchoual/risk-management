@@ -36,7 +36,6 @@ public class LocationService {
 	}
 	
 	public void deleteLocation(Long id) {
-		Location loc = this.repository.findById(id).get();
-		this.repository.delete(loc);
+		this.repository.deleteById(id);
 	}
 }

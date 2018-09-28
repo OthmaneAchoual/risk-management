@@ -42,7 +42,6 @@ public class RiskService {
 	}
 	
 	public void delete(Long id) {
-		Risk entity = this.repository.findById(id).get();
-		this.repository.delete(entity);
+		this.repository.deleteById(id);
 	}
 }

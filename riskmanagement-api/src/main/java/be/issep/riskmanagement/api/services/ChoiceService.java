@@ -32,7 +32,6 @@ public class ChoiceService {
 	}
 	
 	public void delete(Long id) {
-		Choice choice = this.repository.findById(id).get();
-		this.repository.delete(choice);
+		this.repository.deleteById(id);
 	}
 }

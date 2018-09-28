@@ -44,9 +44,7 @@ public class DocumentService implements be.issep.riskmanagement.api.services.Ser
 
 	@Override
 	public void delete(Long id) {
-		// TODO need logic to delete the physical file
-		Document doc = this.repository.findById(id).get();
-		this.repository.delete(doc);
+		this.repository.deleteById(id);
 	}
 
 }

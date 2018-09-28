@@ -8,16 +8,19 @@ public class EquipmentDTO {
 	private String code;
 	private String description;
 	private Long type;
-	private boolean isEPC;
+	private String imagePath;
+	private boolean epc;
 	private boolean training;
 	
 	public EquipmentDTO() {}
 
-	public EquipmentDTO(String title, String code, String description, Long type, boolean isEPC, boolean training) {
+	public EquipmentDTO(String title, String code, String description, Long type, String imagePath, boolean epc, boolean training) {
 		this.title = title;
 		this.code = code;
 		this.description = description;
-		this.isEPC = isEPC;
+		this.type = type;
+		this.imagePath = imagePath;
+		this.epc = epc;
 		this.training = training;
 	}
 
@@ -27,6 +30,14 @@ public class EquipmentDTO {
 
 	public void setType(Long type) {
 		this.type = type;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public String getTitle() {
@@ -53,12 +64,12 @@ public class EquipmentDTO {
 		this.description = description;
 	}
 
-	public boolean isEPC() {
-		return isEPC;
+	public boolean isEpc() {
+		return epc;
 	}
 
-	public void setEPC(boolean isEPC) {
-		this.isEPC = isEPC;
+	public void setEpc(boolean epc) {
+		this.epc = epc;
 	}
 
 	public boolean isTraining() {
@@ -74,7 +85,8 @@ public class EquipmentDTO {
 				this.title,
 				this.code,
 				this.description,
-				this.isEPC,
+				this.imagePath,
+				this.epc,
 				this.training
 		);
 	}

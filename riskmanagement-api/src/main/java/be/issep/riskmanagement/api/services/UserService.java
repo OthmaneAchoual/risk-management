@@ -41,9 +41,7 @@ public class UserService implements be.issep.riskmanagement.api.services.Service
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		User user = this.repository.findById(id).get();
-		this.repository.delete(user);
+		this.repository.deleteById(id);
 	}
 
 }

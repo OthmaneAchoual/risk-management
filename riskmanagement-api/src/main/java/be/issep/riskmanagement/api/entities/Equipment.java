@@ -19,7 +19,8 @@ public class Equipment {
 	private String title;
 	private String code;
 	private String description;
-	private boolean isEPC;
+	private String imagePath;
+	private boolean epc;
 	private boolean training;
 	
 	@ManyToOne
@@ -28,11 +29,12 @@ public class Equipment {
 	
 	public Equipment() {}
 
-	public Equipment(String title, String code, String description, boolean isEPC, boolean training) {
+	public Equipment(String title, String code, String description, String imagePath, boolean epc, boolean training) {
 		this.title = title;
 		this.code = code;
 		this.description = description;
-		this.isEPC = isEPC;
+		this.imagePath = imagePath;
+		this.epc = epc;
 		this.training = training;
 	}
 
@@ -42,6 +44,15 @@ public class Equipment {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public String getTitle() {
@@ -68,12 +79,12 @@ public class Equipment {
 		this.description = description;
 	}
 
-	public boolean isEPC() {
-		return isEPC;
+	public boolean isEpc() {
+		return epc;
 	}
 
-	public void setEPC(boolean isEPC) {
-		this.isEPC = isEPC;
+	public void setEpc(boolean epc) {
+		this.epc = epc;
 	}
 
 	public boolean isTraining() {
