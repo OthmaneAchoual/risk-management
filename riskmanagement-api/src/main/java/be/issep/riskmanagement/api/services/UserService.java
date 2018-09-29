@@ -17,19 +17,16 @@ public class UserService implements be.issep.riskmanagement.api.services.Service
 	
 	@Override
 	public User get(Long id) {
-		// TODO Auto-generated method stub
 		return this.repository.findById(id).get();
 	}
 
 	@Override
 	public List<User> all() {
-		// TODO Auto-generated method stub
 		return this.repository.findAll();
 	}
 
 	@Override
 	public User add(UserDTO dto) {
-		// TODO Auto-generated method stub
 		User manager = null;
 		if(dto.getManager() != null) {
 			manager = this.repository.findById(dto.getManager()).get();
@@ -38,6 +35,20 @@ public class UserService implements be.issep.riskmanagement.api.services.Service
 		entity.setManager(manager);
 		return this.repository.save(entity);
 	}
+
+  public User update(UserDTO dto, Long id) {
+    User user = this.repository.findById(id).get();
+    User manager = null;
+		if(dto.getManager() != null) {
+			manager = this.repository.findById(dto.getManager()).get();
+    }
+    user.setFirstname(dto.getFirstname());
+    user.setLastname(dto.getLastname());
+    user.setEmail(dto.getEmail());
+    user.setPhone(dto.getPhone());
+    user.setManager(manager);
+    return this.repository.save(user);
+  }
 
 	@Override
 	public void delete(Long id) {
