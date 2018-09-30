@@ -49,7 +49,28 @@ public class WorkContext {
 		joinColumns=@JoinColumn(name="CTX_ID"),
 		inverseJoinColumns=@JoinColumn(name="EQUIPMENT_ID")
 	)
-	private List<Equipment> equipments;
+  private List<Equipment> equipments;
+  
+  @ManyToMany
+	@JoinTable(name="CTX_DOCUMENT",
+		joinColumns=@JoinColumn(name="CTX_ID"),
+		inverseJoinColumns=@JoinColumn(name="DOCUMENT_ID")
+	)
+  private List<Document> documents;
+  
+  @ManyToMany
+	@JoinTable(name="CTX_RISK",
+		joinColumns=@JoinColumn(name="CTX_ID"),
+		inverseJoinColumns=@JoinColumn(name="RISK_ID")
+	)
+  private List<Risk> risks;
+  
+  @ManyToMany
+	@JoinTable(name="CTX_USER",
+		joinColumns=@JoinColumn(name="CTX_ID"),
+		inverseJoinColumns=@JoinColumn(name="USER_ID")
+	)
+	private List<User> users;
 
 	public WorkContext() {}
 
@@ -114,5 +135,45 @@ public class WorkContext {
 
 	public void setTypes(List<Choice> types) {
 		this.types = types;
+  }
+  
+  public List<Document> getDocuments() {
+		return documents;
 	}
+
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
+  }
+  
+  public List<Risk> getRisks() {
+		return risks;
+	}
+
+	public void setRisks(List<Risk> risks) {
+		this.risks = risks;
+  }
+  
+  public List<Location> getLocations() {
+    return this.locations;
+  }
+
+  public void setLocations(List<Location> locations) {
+    this.locations = locations;
+  }
+
+  public List<Equipment> getEquipments() {
+    return this.equipments;
+  }
+
+  public void setEquipments(List<Equipment> equipments) {
+    this.equipments = equipments;
+  }
+
+  public List<User> getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(List<User> users) {
+    this.users = users;
+  }
 }

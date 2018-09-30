@@ -14,7 +14,10 @@ public class WorkContextDTO {
 	
 	private List<Long> types;
 	private List<Long> equipments;
-	private List<Long> locations;
+  private List<Long> locations;
+  private List<Long> documents;
+  private List<Long> risks;
+  private List<Long> users;
 	
 	public WorkContextDTO() {}
 	
@@ -58,7 +61,6 @@ public class WorkContextDTO {
 		this.type = type;
 	}
 
-	
 	public List<Long> getTypes() {
 		return types;
 	}
@@ -81,7 +83,31 @@ public class WorkContextDTO {
 
 	public void setLocations(List<Long> locations) {
 		this.locations = locations;
-	}
+  }
+  
+  public List<Long> getDocuments() {
+    return this.documents;
+  }
+
+  public void setDocuments(List<Long> documents) {
+    this.documents = documents;
+  }
+
+  public List<Long> getRisks() {
+    return this.risks;
+  }
+
+  public void setRisks(List<Long> risks) {
+    this.risks = risks;
+  }
+
+  public List<Long> getUsers() {
+    return this.users;
+  }
+
+  public void setUers(List<Long> users) {
+    this.users = users;
+  }
 
 	public WorkContext convert() {
 		return new WorkContext(this.name, this.code, this.shortDescription, this.fullDescription);

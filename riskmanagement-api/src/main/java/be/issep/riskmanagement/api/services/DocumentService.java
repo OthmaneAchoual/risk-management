@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -26,22 +27,22 @@ public class DocumentService implements be.issep.riskmanagement.api.services.Ser
 	private DocumentRepository repository;
 	@Autowired
 	private ChoiceService choiceService;
-	
+  
+  @Value("${document.directory}")
+  private String directory;
+
 	@Override
 	public Document get(Long id) {
-		// TODO Auto-generated method stub
 		return this.repository.findById(id).get();
 	}
 
 	@Override
 	public List<Document> all() {
-		// TODO Auto-generated method stub
 		return this.repository.findAll();
 	}
 
 	@Override
 	public Document add(DocumentDTO doc) {
-		// TODO Auto-generated method stub
 		Choice category = null;
 		if(doc.getCategory() != null) {
 			category = this.choiceService.get(doc.getCategory());
@@ -57,7 +58,7 @@ public class DocumentService implements be.issep.riskmanagement.api.services.Ser
 	}
 	
 	public String upload(MultipartFile file) {
-		String path = "/Users/othmaneachoual/git/risk-management/" + file.getOriginalFilename();
+		String path = this.directory + file.getOriginalFilename();
 		try {
 			byte[] bytes = file.getBytes();
 			BufferedOutputStream os = new BufferedOutputStream(
@@ -78,7 +79,6 @@ public class DocumentService implements be.issep.riskmanagement.api.services.Ser
 		try {
 			resource = new UrlResource(path.toUri());
 		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return resource;

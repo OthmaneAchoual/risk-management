@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,7 +22,10 @@ public class EquipmentService {
 	private EquipmentRepository repository;
 	
 	@Autowired
-	private ChoiceService choiceService;
+  private ChoiceService choiceService;
+  
+  @Value("${image.directory")
+  private String directory;
 	
 	public List<Equipment> all() {
 		return this.repository.findAll();
@@ -59,7 +63,7 @@ public class EquipmentService {
 	}
 	
 	public String saveImage(MultipartFile file) {
-		String path = "/Users/othmaneachoual/git/risk-management/" + file.getOriginalFilename();
+		String path = this.directory + file.getOriginalFilename();
 		try {
 			byte[] bytes = file.getBytes();
 			BufferedOutputStream os = new BufferedOutputStream(
