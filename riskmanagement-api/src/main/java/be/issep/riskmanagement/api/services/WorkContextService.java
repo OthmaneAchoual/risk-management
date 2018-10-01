@@ -60,7 +60,7 @@ public class WorkContextService {
     List<Equipment> equipments = this.equipmentRepository.findAllById(dto.getEquipments());
     List<Location> locations   = this.locationRepository.findAllById(dto.getLocations());
     List<User> users           = this.userRepository.findAllById(dto.getUsers());
-		WorkContext entity = dto.convert();
+	WorkContext entity = dto.convert();
     entity.setTypes(types);
     entity.setDocuments(documents);
     entity.setRisks(risks);
