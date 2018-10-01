@@ -28,25 +28,29 @@ public class WorkContextService {
 	private WorkContextRepository repository;
 	
 	@Autowired
-  private ChoiceRepository choiceRepository;
+	private ChoiceRepository choiceRepository;
 
-  @Autowired
-  private DocumentRepository documentRepository;
+	@Autowired
+	private DocumentRepository documentRepository;
   
-  @Autowired
-  private RiskRepository riskRepository;
+	@Autowired
+	private RiskRepository riskRepository;
   
-  @Autowired
-  private LocationRepository locationRepository;
+	@Autowired
+	private LocationRepository locationRepository;
   
-  @Autowired
-  private EquipmentRepository equipmentRepository;
+	@Autowired
+	private EquipmentRepository equipmentRepository;
   
-  @Autowired
+	@Autowired
 	private UserRepository userRepository;
 	
 	public List<WorkContext> all() {
 		return this.repository.findAll();
+	}
+	
+	public WorkContext get(Long id) {
+		return this.repository.findById(id).get();
 	}
 	
 	public WorkContext add(WorkContextDTO dto) {

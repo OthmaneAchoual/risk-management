@@ -24,7 +24,7 @@ public class EquipmentService {
 	@Autowired
   private ChoiceService choiceService;
   
-  @Value("${image.directory")
+  @Value("${image.directory}")
   private String directory;
 	
 	public List<Equipment> all() {
