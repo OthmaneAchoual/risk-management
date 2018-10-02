@@ -24,7 +24,7 @@ import be.issep.riskmanagement.api.services.DocumentService;
 
 @RestController
 @RequestMapping("/api/document")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class DocumentController {
 
 	@Autowired

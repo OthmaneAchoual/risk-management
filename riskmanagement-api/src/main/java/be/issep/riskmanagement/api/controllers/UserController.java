@@ -19,7 +19,7 @@ import be.issep.riskmanagement.api.services.UserService;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class UserController {
 
 	@Autowired

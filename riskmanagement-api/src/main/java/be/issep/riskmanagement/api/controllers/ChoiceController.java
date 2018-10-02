@@ -17,7 +17,7 @@ import be.issep.riskmanagement.api.services.ChoiceService;
 
 @RestController
 @RequestMapping("/api/choice")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class ChoiceController {
 
 	@Autowired

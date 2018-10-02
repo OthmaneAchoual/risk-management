@@ -17,7 +17,7 @@ import be.issep.riskmanagement.api.services.WorkContextService;
 
 @RestController
 @RequestMapping("/api/workcontext")
-@CrossOrigin(origins="http://localhost:4200")
+//@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class WorkContextController {
 
 	@Autowired

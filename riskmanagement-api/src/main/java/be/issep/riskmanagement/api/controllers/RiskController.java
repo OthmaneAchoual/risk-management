@@ -18,7 +18,7 @@ import be.issep.riskmanagement.api.services.RiskService;
 
 @RestController
 @RequestMapping("/api/risk")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class RiskController {
 
 	@Autowired

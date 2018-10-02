@@ -19,7 +19,7 @@ import be.issep.riskmanagement.api.services.LocationService;
 
 @RestController
 @RequestMapping("/api/location")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class LocationController {
 
 	@Autowired

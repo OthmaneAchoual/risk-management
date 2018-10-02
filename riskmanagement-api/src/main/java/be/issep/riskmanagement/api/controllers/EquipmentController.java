@@ -29,7 +29,7 @@ import be.issep.riskmanagement.api.services.EquipmentService;
 
 @RestController
 @RequestMapping("/api/equipment")
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200", allowCredentials="true")
 public class EquipmentController {
 
 	@Autowired
