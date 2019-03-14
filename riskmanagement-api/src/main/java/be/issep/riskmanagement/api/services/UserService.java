@@ -2,6 +2,8 @@ package be.issep.riskmanagement.api.services;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,8 @@ import be.issep.riskmanagement.api.repositories.UserRepository;
 
 @Service
 public class UserService implements be.issep.riskmanagement.api.services.Service<User, UserDTO, Long> {
+
+	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
 	@Autowired
 	private UserRepository repository;
@@ -33,7 +37,9 @@ public class UserService implements be.issep.riskmanagement.api.services.Service
 		}
 		User entity = dto.convert();
 		entity.setManager(manager);
-		return this.repository.save(entity);
+		entity = this.repository.save(entity);
+		logger.info("saved new user {} with id {}", entity.getFirstname() + ", " + entity.getLastname(), entity.getId());
+		return entity;
 	}
 
   public User update(UserDTO dto, Long id) {
